@@ -1,0 +1,13 @@
+#books={"1":['book name','author name','issue date','due date of each book',rating]}
+books={"1":['javacode','James Gosling','0101','0102','4'],
+       "2":['Pythoncode','Guido van Rossum','0102','0103','5'],
+       "3":['HTMLcode','Tim Berners-Lee','0103','0104','3.5'],
+       "4":['Ccode','Dennis Ritchie','0104','0105','4.5'],
+       "5":['C++ycode','Bjarne Stroustrup','0105','0106','4.3']}
+#user= {"101":['name','password','no. of books issued','number of each book',['library id','libPass','no. of month validity left']}
+user= {"101":['simran','1234',2,['1','2'],['11','111','1'],'pink'],
+       "102":['rohit','2345',3,['1','2','4'],['22','222','0'],'blue'],
+       "103":['aakash','3456',4,['1','2','4','5'],['33','333','1'],'yellow'],
+       "104":['rahul','4567',5,['1','2','3','4','5'],['44','444','1'],'green'],
+       "105":['vijay','5678',2,['1','2'],['55','5555','0'],'white']
+                            }

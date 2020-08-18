@@ -1,0 +1,278 @@
+#library Management
+print("Welcome in Library".center(50,'*'))
+from random import randint
+while True:
+    def login():
+        print('for the login ,Press your id password first')
+        #print('Note:- Your password must have contain Minimum 2 SpecChar, Number, SmallCHar and CapiChar')
+        id=input('press your id number : ')
+        password=input('press your password : ')
+        if id in user.keys():
+            if password==user[id][1]:
+                print('You successfully login')
+                while True:
+                    def AgainIssueBook():
+                        id=input('enter your User id first')
+                        #print('First see The collections of Books')
+                        #BooksRating()
+                        #'106': ['noman', '9999', 3, ['1', '2', '3'], ['46', '785', '1'], 'jamuni']
+                        if len(user[id])>2:
+                            LibId=input('first enter the library ide :')
+                            if LibId==user[id][4][0]:
+                                LibPass=input('enter the library ide password :')
+                                if LibPass==user[id][4][1]:
+                                    e1=int(input('how many books you want to purchase'))
+                                    if e1>0:
+                                        e2=list(map(str,input('Enter the books number(like Book1 or Book5 etc..) \nPlease Make space b/w every digit (like 1 2 3 or 4 5)').split()))
+                                        # '106': ['noman', '9999', 3, ['2', '5', '4'], ['56', '207', '1'], 'jamuni']
+                                        #d['11'].extend(['1','2','3','4'])
+                                        user[id][2]=e1+(user[id][2])
+                                        user[id][3].extend(e2)
+                                        #BookDetails()
+                                    else:
+                                        print('You have to purchase atleast one book !!!')
+                                else:
+                                    print('!!!***###your library password is wrong, please contact to librarien')
+                                    print('*'.center(100,'*'))
+                            else:
+                                print('!!!***###your library id is wrong, please contact to librarien')
+                                print('*'.center(100,'*'))
+                        else:
+                            print('Please first generate the LibId then Issue the book')
+                            e1=int(input('how many books you want to purchase'))
+                            if e1>0:
+                                e2=list(map(str,input('Enter the books number(like Book1 or Book5 etc..) \nPlease Make space b/w every digit (like 1 2 3 or 4 5)').split()))
+                                e3=randint(10,99)
+                                e4=randint(100,999)
+                                e5=input('For security purpose, enter your favourite clour')
+                                user[id].extend((e1,e2,[str(e3),str(e4),'1'],e5))
+                                print(f'Your library Id : {e3} \nYour Library Password : {e4}')
+                            else:
+                                print('You must have choose atleast one book')
+                                
+                    def BookDetails():
+                        if len(user[id])>2:
+                            print('Book Details'.center(100,'*'))
+                            print(f"Customer name : {user[id][0]} \n   Number of Books Issued : {user[id][2]} \n   Number of each Book : {user[id][3]}") 
+                            for i in range(len(user[id][3])):
+                                # '106': ['noman', '9999', 2, ['3','4'], ['51', '195', '1'], 'jamuni']}
+                                
+                                print(f" no. {user[id][3][i]} book name : {books[user[id][3][i]][0]} \n no. {user[id][3][i]} book author name : {books[user[id][3][i]][1]} \n no. {user[id][3][i]} book issue date(ddmm) : {books[user[id][3][i]][2]} \n no. {user[id][3][i]} book due date(ddmm) : {books[user[id][3][i]][3]}")
+                                print('*'.center(100,'*'))
+                        else:
+                            print('You have not issue any book, please first you will complete the IssueBook process')
+                            
+                    def UserDetail():
+                        id=input('Please input UserId : ')
+                        if len(user[id])>2:
+                            print('User Details'.center(100,'*'))
+                            print(f"Customer name : {user[id][0]} \n   Number of Books Issued : {user[id][2]} \n   Number of each Book : {user[id][3]}")
+                            print('*'.center(100,'*'))
+                        else:
+                            print('You have no such details.')
+                    def exit():
+                        return 1
+                        
+                    print('choose the Option : \n1:for Book Details \n2:for user details \n3:For Issue Book \n4:For Exit ')
+                    inn2=int(input())
+                    if inn2==1:
+                        BookDetails()
+                    elif inn2==2:
+                        UserDetail()
+                    elif inn2==3:
+                        AgainIssueBook()
+                    elif inn2==4:
+                        b=exit()
+                        if b==1:
+                            break
+                        
+                    else:
+                        print('!!!***###You Choose incorrect option, please again start from the beginning')
+                        print('*'.center(100,'*')) 
+            else:
+                print('!!!***###Your password is wrong,Try again.')
+                print('*'.center(100,'*'))        
+        else:
+            print('!!!***###Your id doesn"t" exist, try again' )
+            print('*'.center(100,'*'))
+    def ForgotPass():
+        id=input('Enter your User id once again :')
+        if id in user.keys():
+            SecQue=input('enter your favorite colour :')
+            if SecQue==user[id][5]:
+                #ide=input('enter your account id :')
+                new=input('press your new password :')
+                again=input('reenter the password :')
+                if new==again:
+                    user[id][1]=new
+                    print('Successfully, your password has been changed')
+                    print('*'.center(100,'*'))
+                else:
+                    print("!!!***###both password doesn't match, try again")
+                    print('*'.center(100,'*'))
+            else:
+                print("!!!***###the color which you enter is doesn't match, try again")
+                print('*'.center(100,'*'))
+        else:
+            print(f'Please enter valid User id, id {id} doesn"t exist')
+    def exit():
+        print('again meet you soon'.center(100,'*'))
+        return 1
+
+    ###
+    print('Enter 1, for Book Portal : \nEnter 2, for User Portal : ')
+    press=int(input())
+    if press==1:
+        print('WELCOME IN BOOK PORTAL'.center(70,"^"))
+        while True:
+            print("For login press : 1 \nFor forgot password press : 2 \nFor exit press : 3")
+
+            inn=int(input())
+            if inn==1:
+                login()
+            elif inn==2:
+                ForgotPass()
+            elif inn==3:
+                a=exit()
+                if a==1:
+                    break
+            else:
+                print('Please choose b/w 1,2,3')
+                print('*'.center(100,'*'))
+    
+    elif press==2:
+        print('WELCOME IN USER PORTAL'.center(70,"^"))
+        while True:
+            print("For login press : 1 \nFor SignUp : 2 \nFor forgot password press : 3 \nFor exit press : 4")
+            def UserLogin():
+                print('for the login ,Press your id password first')
+                #print('Note:- Your password must have contain Minimum 2 SpecChar, Number, SmallCHar and CapiChar')
+                id=input('press your id number : ')
+                if id in user.keys():
+                    password=input('press your password : ')
+                    if password==user[id][1]:
+                        print('You successfully login')
+                        while True:
+
+                            #1. Show books according to rating  2. Author Name Book 3. Issue Book 4. Show Details 5. Exit
+                            def BooksRating():
+                                for i in books.keys():
+                                    print(f'Book Rating : {books[i][4]} \nBook name : {books[i][0]} \nAuthor name : {books[i][1]}')
+
+                            def AuthorName():
+                                if len(books[id])>0:
+                                    for i in user.keys():
+                                        print(f'Author Name : {books[i][1]} \nNo. of Book Name : {books[i][0]} \nBook Rating : {books[i][4]}')
+                                        #"1":['javacode','James Gosling','0101','0102','4'],
+                                else:
+                                    pass
+                            #def ForgotPass():
+                            #def UserDetail():
+                            #exit()
+                            print("1 for : Show books according to rating \n2 for : Issue Book \n3 for : Show User Details \n4 for : exit ")
+                            uli=int(input())
+                            if uli==1:
+                                BooksRating()
+                            elif uli==2:
+                                id=input('enter your id first :')
+                                print('The collections of Books in Library : ')
+                                BooksRating()
+                                
+                                if len(user[id])>2:
+                                    e1=int(input('how many books you want to purchase'))
+                                    if e1>0:
+                                        e2=list(map(str,input('Enter the books number(like Book1 or Book5 etc..) \nPlease Make space b/w every digit (like 1 2 3 or 4 5)').split()))
+                                        user[id][2]=e1+(user[id][2])
+                                        user[id][3].extend(e2)
+                                        #print(f'Your library Id : {e3} \nYour Library Password : {e4}')
+                                    else:
+                                        print('You must have choose atleast one book')
+                                    
+                                else:
+                                    e1=int(input('how many books you want to purchase'))
+                                    if e1>0:
+                                        e2=list(map(str,input('Enter the books number(like Book1 or Book5 etc..) \nPlease Make space b/w every digit (like 1 2 3 or 4 5)').split()))
+                                        e3=randint(10,99)
+                                        e4=randint(100,999)
+                                        e5=input('For security purpose, enter your favourite clour')
+                                        user[id].extend((e1,e2,[str(e3),str(e4),'1'],e5))
+                                        print(f'Your library Id : {e3} \nYour Library Password : {e4}')
+                                    else:
+                                        print('You must have choose atleast one book')
+                            elif uli==3:
+                                #UserDetail()
+                                if len(user[id])>2:
+                                    print('User Details'.center(100,'*'))
+                                    print(f"Customer name : {user[id][0]} \n   Number of Books Issued : {user[id][2]} \n   Number of each Book : {user[id][3]}")
+                                    print('*'.center(100,'*'))
+                                else:
+                                    print('Sorry, You don"t purchase any book')
+                            elif uli==4:
+                                ulie=exit()
+                                if ulie==1:
+                                    break
+                            else:
+                                print('You choose wrong option')
+                    else:
+                        print("Your Password doesn't exist.".center(80,'-'))
+
+                else:
+                    print("Your id doesn't exist, First complete the Signup process".center(80,'-'))
+            def SignUp(name,pw,security1):
+                #name=input('Please enter your Name :')
+                #pw=input('Please enter your password')
+                #security1=input('Enter your favourite Sport Full name :')
+                l=[]
+                for i in user.keys():
+                    l.append(i)
+                var=str(int(l[-1])+1)
+                user.update({var:[name]})
+                user[var].append(pw)
+                print(f'Your UserId Number is : {var}')
+
+            ent=int(input())
+            if ent==1:
+                UserLogin()
+            elif ent==2:
+                flag=0
+                name=input('Please enter your Name :')
+                for i in user.keys():
+                    if name!=user[i][0]:
+                        flag=0
+                    else:
+                        flag=1
+                        break
+                if flag==0:
+                    pw=input('Please enter your password')
+                    security1=input('Enter your favourite Sport Full name :')
+                    SignUp(name,pw,security1)
+                else:
+                    print(f'This {name} is already exist in database, please choose different name')
+            elif ent==3:
+                id=input('Please enter your user id :')
+                if id in user.keys():
+                    if len(user[id])>2:
+                        ForgotPass()
+                    else:
+                        security2=input('Enter your favourite Sport Full name')
+                        if security2==security1:
+                            new=input('press your new password :')
+                            again=input('reenter the password :')
+                            if new==again:
+                                user[id][1]=new
+                                print('Successfully, your password has been changed')
+                                print('*'.center(100,'*'))
+                            else:
+                                print("!!!***###both password doesn't match, try again")
+                                print('*'.center(100,'*'))
+                else:
+                    print(f'Please enter valid User id, id {id} doesn"t exist')
+                    
+            elif ent==4:
+                if exit()==1:
+                    break
+            else:
+                print("Please enter valid number in b/w 1 to 4")    
+    else:
+        print('You choose wrong option, Try again...')
+        break
